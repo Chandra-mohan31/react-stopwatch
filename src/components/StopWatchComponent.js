@@ -1,5 +1,11 @@
 import React, { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import "./StopWatchComponent.css";
+import { IconButton } from '@mui/material';
+import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
+import PauseRoundedIcon from '@mui/icons-material/PauseRounded';
+import FlagRoundedIcon from '@mui/icons-material/FlagRounded';
+import RestartAltRoundedIcon from '@mui/icons-material/RestartAltRounded';
+
 
 function StopWatchComponent() {
     const [time,setTime] = useState(0);
@@ -18,6 +24,7 @@ function StopWatchComponent() {
       const formattedHours = String(hours).padStart(2, '0');
       const formattedMinutes = String(minutes).padStart(2, '0');
       const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+      
     
       return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
     }
@@ -65,23 +72,36 @@ function StopWatchComponent() {
     <div className='stopwatch_container'>
         <div className='stop_watch'>
             <p>{formatTime(time)}</p>
+            <span style={{
+              color: "whitesmoke",
+              fontSize: '12px'
+            }}>HH&nbsp;:MM:&nbsp;SS</span>
         </div>
         <div className='stop_watch_controls'>
             {isRunning ? (
-                <button onClick={stopTimer} className='btn'>
-                Stop
-            </button>
+                <IconButton color='primary' size='large' className='btn' sx={{
+                  margin:"10px"
+                }} onClick={stopTimer}>
+                  <PauseRoundedIcon fontSize='large' />
+                  
+                </IconButton>
             ):(
-                <button onClick={startTimer} className='btn'>
-                Start
-            </button>
+                <IconButton color='primary' sx={{
+                  margin:"10px"
+                }} size='large' onClick={startTimer} className='btn'>
+                <PlayArrowRoundedIcon fontSize='large' />
+            </IconButton>
             )}
-            <button className='btn' onClick={createLaps} disabled={!isRunning ? true:false}>
-                Laps
-            </button>
-            <button className='btn' onClick={resetTimer}>
-                Reset
-            </button>
+            <IconButton sx={{
+                  margin:"10px"
+                }} size='large' className='btn' onClick={createLaps} disabled={!isRunning ? true:false}>
+                <FlagRoundedIcon fontSize='large' />
+            </IconButton>
+            <IconButton sx={{
+                  margin:"10px"
+                }} size='large' className='btn' onClick={resetTimer}>
+                <RestartAltRoundedIcon fontSize='large' />
+            </IconButton>
         </div>
         <div className='laps'>
           {
