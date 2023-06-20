@@ -25,7 +25,7 @@ steps:
   displayName: 'Deploy to Netlify'
   inputs:
     authToken: h0pYnATAHk6bcJZUh86GO3cNLC8Y06pfj26jR10i4Mw
-    siteId: '4cf19b56-a4cc-426f-ad3e-57c9b5774582'
+    siteId: 4cf19b56-a4cc-426f-ad3e-57c9b5774582
 
 
 
