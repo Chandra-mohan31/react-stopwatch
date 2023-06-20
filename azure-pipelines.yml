@@ -15,20 +15,22 @@ steps:
   inputs:
     versionSpec: '16.x'
   displayName: 'Install Node.js'
+- task: aliencube.netlify-cli-extensions.install-task.install@1
+  displayName: 'Install Netlify CLI'
+  inputs:
+    version: 15.6.0
+  
 
 - script: |
     npm install
     npm run build
   displayName: 'npm install and build'
 
-
 - task: aliencube.netlify-cli-extensions.deploy-task.deploy@1
   displayName: 'Deploy to Netlify'
   inputs:
-    authToken: h0pYnATAHk6bcJZUh86GO3cNLC8Y06pfj26jR10i4Mw
-    siteId: 4cf19b56-a4cc-426f-ad3e-57c9b5774582
-
-
+    authToken: 'fXhHEX7iFMb2RL_ObMNHtZcOyZ8gtEVj62PzYbFZTQA'
+    siteId: '4cf19b56-a4cc-426f-ad3e-57c9b5774582'
 
 
 
